@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for blogapp in blogapps.all %}
+    <br>
+    <div class="container">
+        <a href="{% url 'detail' blogapp.id %}">
+                <h1>{{ blogapp.title }}</h1>
+        </a>
+        <p>{{ blogapp.pub_date_pretty }}</p>
+        <p>{{ blogapp.summary }}<a href="{% url 'detail' blogapp.id %}"> ...more</a></p>
+    </div>
+    {% endfor %}
+
+{% endblock %}
